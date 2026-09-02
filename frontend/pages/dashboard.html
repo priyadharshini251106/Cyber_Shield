@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - CyberShield</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+    <button
+    id="themeToggle"
+    class="theme-toggle"
+    type="button"
+    title="Switch to Dark Mode">
+    🌙
+</button>
+
+    <header class="navbar">
+
+        <div class="logo">
+            CyberShield
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="incidents.html">
+                Incidents
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="#" id="logoutButton">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="dashboard-page">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Security Dashboard
+                </h1>
+
+                <p id="welcomeText">
+                    Welcome
+                </p>
+
+            </div>
+
+
+            <a
+                href="create-incident.html"
+                class="btn"
+            >
+                + Report Incident
+            </a>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <section class="statistics">
+
+            <div class="stat-card">
+
+                <h3>
+                    Total Incidents
+                </h3>
+
+                <p id="totalIncidents">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Open
+                </h3>
+
+                <p id="openIncidents">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    In Progress
+                </h3>
+
+                <p id="inProgressIncidents">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Resolved
+                </h3>
+
+                <p id="resolvedIncidents">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Critical
+                </h3>
+
+                <p id="criticalIncidents">
+                    0
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- CHARTS -->
+
+<section class="dashboard-section">
+
+    <h2>
+        Incident Overview
+    </h2>
+
+
+    <div class="charts-container">
+
+        <!-- STATUS CHART -->
+
+        <div class="chart-card">
+
+            <h3>
+                Incidents by Status
+            </h3>
+
+            <div
+                id="statusChart"
+                class="bar-chart"
+            ></div>
+
+        </div>
+
+
+        <!-- SEVERITY CHART -->
+
+        <div class="chart-card">
+
+            <h3>
+                Incidents by Severity
+            </h3>
+
+            <div
+                id="severityChart"
+                class="bar-chart"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- QUICK ACTIONS -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Quick Actions
+            </h2>
+
+
+            <div class="quick-actions">
+
+                <a
+                    href="create-incident.html"
+                    class="quick-card"
+                >
+                    <h3>
+                        Report Incident
+                    </h3>
+
+                    <p>
+                        Report a new security incident.
+                    </p>
+                </a>
+
+
+                <a
+                    href="incidents.html"
+                    class="quick-card"
+                >
+                    <h3>
+                        View Incidents
+                    </h3>
+
+                    <p>
+                        View and manage reported incidents.
+                    </p>
+                </a>
+                <a
+                href="users.html"
+                id="userManagementLink"
+                class="quick-card"
+            >
+                User Management
+            </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/theme.js"></script>
+
+</body>
+
+</html>

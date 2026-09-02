@@ -1,0 +1,3 @@
+function cs { javac -cp "backend\lib\*" -d backend\out (Get-ChildItem -Recurse backend\src\main\java\*.java).FullName; if ($?) { java -cp "backend\out;backend\lib\*" com.cybershield.incidentmanagement.server.CyberShieldServer } }
+
+copy this and paste in the vscode terminal and next time you dont need to type fully just type cs and enter to get the values start the server

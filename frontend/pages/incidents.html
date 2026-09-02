@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Incidents - CyberShield</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+    <button
+    id="themeToggle"
+    class="theme-toggle"
+    type="button">
+    🌙
+</button>
+
+    <header class="navbar">
+
+        <div class="logo">
+            CyberShield
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="incidents.html">
+                Incidents
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="#" id="logoutButton">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="incident-page">
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Security Incidents</h1>
+
+                <p>
+                    Manage reported cybersecurity incidents.
+                </p>
+
+            </div>
+
+
+            <a
+                href="create-incident.html"
+                class="btn"
+            >
+                + Create Incident
+            </a>
+
+        </div>
+
+
+        <div id="message" class="message"></div>
+
+        <div class="incident-view-buttons">
+
+    <button
+        type="button"
+        id="allIncidentsButton"
+        class="view-button active">
+        All Incidents
+    </button>
+
+    <button
+        type="button"
+        id="myIncidentsButton"
+        class="view-button">
+        My Incidents
+    </button>
+
+</div>
+        <!-- SEARCH AND FILTERS -->
+
+<section class="incident-filters">
+
+    <div class="search-box">
+
+        <label for="searchInput">
+            Search Incidents
+        </label>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title, category, severity or status..."
+        >
+
+    </div>
+
+
+    <div class="filter-group">
+
+        <div class="filter-box">
+
+            <label for="severityFilter">
+                Severity
+            </label>
+
+            <select id="severityFilter">
+
+                <option value="ALL">
+                    All
+                </option>
+
+                <option value="LOW">
+                    Low
+                </option>
+
+                <option value="MEDIUM">
+                    Medium
+                </option>
+
+                <option value="HIGH">
+                    High
+                </option>
+
+                <option value="CRITICAL">
+                    Critical
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-box">
+
+            <label for="statusFilter">
+                Status
+            </label>
+
+            <select id="statusFilter">
+
+                <option value="ALL">
+                    All
+                </option>
+
+                <option value="OPEN">
+                    Open
+                </option>
+
+                <option value="IN_PROGRESS">
+                    In Progress
+                </option>
+
+                <option value="RESOLVED">
+                    Resolved
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<p
+    id="resultCount"
+    class="result-count"
+></p>
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Title</th>
+
+                        <th>Category</th>
+
+                        <th>Severity</th>
+
+                        <th>Status</th>
+
+                        <th>Reported By</th>
+
+                        <th>Assigned To</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="incidentTableBody">
+
+                    <tr>
+
+                        <td colspan="8">
+                            Loading incidents...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <script src="../js/incidents.js"></script>
+    <script src="../js/theme.js"></script>
+
+</body>
+
+</html>

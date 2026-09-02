@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Incident Details - CyberShield</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            CyberShield
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="incidents.html">
+                Incidents
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="#" id="logoutButton">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- THEME BUTTON -->
+
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        title="Switch to Dark Mode"
+    >
+        🌙
+    </button>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="incident-details-page">
+
+        <div class="details-header">
+
+            <div>
+
+                <h1>
+                    Incident Details
+                </h1>
+
+                <p>
+                    View complete incident information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <p
+            id="message"
+            class="message"
+        ></p>
+
+
+        <!-- INCIDENT CARD -->
+
+        <section class="incident-details-card">
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Incident ID
+                </span>
+
+                <span
+                    id="incidentId"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Title
+                </span>
+
+                <span
+                    id="incidentTitle"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Category
+                </span>
+
+                <span
+                    id="incidentCategory"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Severity
+                </span>
+
+                <span
+                    id="incidentSeverity"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Status
+                </span>
+
+                <span
+                    id="incidentStatus"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Reported By
+                </span>
+
+                <span
+                    id="incidentReporter"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Assigned To
+                </span>
+
+                <span
+                    id="incidentAssignee"
+                    class="detail-value"
+                >
+                    Unassigned
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Created At
+                </span>
+
+                <span
+                    id="createdAt"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span class="detail-label">
+                    Updated At
+                </span>
+
+                <span
+                    id="updatedAt"
+                    class="detail-value"
+                >
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="description-section">
+
+                <h3>
+                    Description
+                </h3>
+
+                <p
+                    id="incidentDescription"
+                >
+                    -
+                </p>
+
+            </div>
+
+
+            <!-- ASSIGNMENT SECTION (ADMIN ONLY) -->
+
+            <div id="assignmentSection" class="assignment-section" style="display: none; margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; background: rgba(0, 0, 0, 0.02);">
+
+                <h3 style="margin-top: 0; margin-bottom: 1rem;">
+                    Incident Assignment (Admin Only)
+                </h3>
+
+                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+
+                    <label for="assignUserSelect" style="font-weight: 600;">
+                        Assign To:
+                    </label>
+
+                    <select id="assignUserSelect" style="padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--border-color, #cbd5e1); min-width: 200px;">
+                        <option value="">-- Select User --</option>
+                    </select>
+
+                    <button
+                        id="assignButton"
+                        class="btn"
+                        type="button"
+                    >
+                        Assign
+                    </button>
+
+                    <button
+                        id="unassignButton"
+                        class="btn"
+                        type="button"
+                        style="background-color: #64748b;"
+                    >
+                        Unassign
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVITY LOG SECTION -->
+
+            <div id="activityLogSection" class="activity-log-section" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px;">
+
+                <h3 style="margin-top: 0; margin-bottom: 1rem;">
+                    Activity Log / Audit Trail
+                </h3>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Action</th>
+
+                                <th>Performed By</th>
+
+                                <th>Description</th>
+
+                                <th>Date / Time</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="activityLogTableBody">
+
+                            <tr>
+
+                                <td colspan="4">
+                                    Loading activity log...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="details-actions" style="margin-top: 2rem;">
+
+                <button
+                    id="editButton"
+                    class="btn"
+                >
+                    Edit Incident
+                </button>
+
+
+                <a
+                    href="incidents.html"
+                    class="back-link"
+                >
+                    ← Back to Incidents
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/incident-details.js"></script>
+
+    <script src="../js/theme.js"></script>
+
+</body>
+
+</html>

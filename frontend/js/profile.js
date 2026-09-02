@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile - CyberShield</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            CyberShield
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="incidents.html">
+                Incidents
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="#" id="logoutButton">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="form-page">
+
+        <div class="form-container">
+
+            <h2>
+                My Profile
+            </h2>
+
+
+            <div class="profile-item">
+
+                <strong>
+                    User ID
+                </strong>
+
+                <span id="userId">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <strong>
+                    Name
+                </strong>
+
+                <span id="userName">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <strong>
+                    Email
+                </strong>
+
+                <span id="userEmail">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <strong>
+                    Role
+                </strong>
+
+                <span id="userRole">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="profile-item">
+
+                <strong>
+                    Account Status
+                </strong>
+
+                <span id="userStatus">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <p
+                id="message"
+                class="message"
+            ></p>
+
+        </div>
+
+    </main>
+
+
+    <script src="../js/profile.js"></script>
+
+</body>
+
+</html>

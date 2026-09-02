@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>User Management - CyberShield</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <script src="../js/theme.js"></script>
+
+</head>
+
+
+<body>
+
+    <!-- ============================= -->
+    <!-- NAVIGATION -->
+    <!-- ============================= -->
+
+    <nav class="navbar">
+
+        <div class="navbar-brand">
+            CyberShield
+        </div>
+
+
+        <div class="navbar-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="incidents.html">
+                Incidents
+            </a>
+
+            <a
+                href="users.html"
+                class="active"
+            >
+                Users
+            </a>
+
+            <button
+                id="themeToggle"
+                class="theme-button"
+                type="button"
+            >
+                🌙
+            </button>
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+                type="button"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ============================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ============================= -->
+
+    <main class="users-container">
+
+        <div class="users-header">
+
+            <div>
+
+                <h1>
+                    User Management
+                </h1>
+
+                <p>
+                    Manage CyberShield users and roles.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ============================= -->
+        <!-- MESSAGE -->
+        <!-- ============================= -->
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+
+        <!-- ============================= -->
+        <!-- USER TABLE -->
+        <!-- ============================= -->
+
+        <section class="users-section">
+
+            <div class="table-container">
+
+                <table class="users-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="userTableBody"
+                    >
+
+                        <tr>
+
+                            <td
+                                colspan="6"
+                            >
+                                Loading users...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/users.js"></script>
+
+</body>
+
+</html>
