@@ -1,143 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+const API_BASE_URL = "http://localhost:8080";
 
-<head>
+const sessionId = localStorage.getItem("sessionId");
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Profile - CyberShield</title>
-
-    <link
-        rel="stylesheet"
-        href="../css/style.css"
-    >
-
-</head>
+const userId = document.getElementById("userId");
+const userName = document.getElementById("userName");
+const userEmail = document.getElementById("userEmail");
+const userRole = document.getElementById("userRole");
+const userStatus = document.getElementById("userStatus");
+const message = document.getElementById("message");
+const logoutButton = document.getElementById("logoutButton");
 
 
-<body>
+async function loadProfile() {
 
-    <header class="navbar">
+    if (!sessionId) {
 
-        <div class="logo">
-            CyberShield
-        </div>
+        window.location.href = "../login.html";
+        return;
+    }
 
+    try {
 
-        <nav>
+        const response = await fetch(`${API_BASE_URL}/api/profile`, {
 
-            <a href="dashboard.html">
-                Dashboard
-            </a>
+            method: "GET",
 
-            <a href="incidents.html">
-                Incidents
-            </a>
+            headers: {
+                "Session-Id": sessionId
+            }
 
-            <a href="profile.html">
-                Profile
-            </a>
-
-            <a href="#" id="logoutButton">
-                Logout
-            </a>
-
-        </nav>
-
-    </header>
+        });
 
 
-    <main class="form-page">
+        if (!response.ok) {
 
-        <div class="form-container">
+            if (response.status === 401 || response.status === 403) {
 
-            <h2>
-                My Profile
-            </h2>
+                localStorage.removeItem("sessionId");
+                localStorage.removeItem("userRole");
 
+                window.location.href = "../login.html";
 
-            <div class="profile-item">
+                return;
+            }
 
-                <strong>
-                    User ID
-                </strong>
-
-                <span id="userId">
-                    Loading...
-                </span>
-
-            </div>
+            throw new Error("Failed to load profile");
+        }
 
 
-            <div class="profile-item">
-
-                <strong>
-                    Name
-                </strong>
-
-                <span id="userName">
-                    Loading...
-                </span>
-
-            </div>
+        const data = await response.json();
 
 
-            <div class="profile-item">
-
-                <strong>
-                    Email
-                </strong>
-
-                <span id="userEmail">
-                    Loading...
-                </span>
-
-            </div>
+        userId.textContent = data.id ?? "-";
+        userName.textContent = data.name ?? "-";
+        userEmail.textContent = data.email ?? "-";
+        userRole.textContent = data.role ?? "-";
 
 
-            <div class="profile-item">
+        if (data.status === true) {
 
-                <strong>
-                    Role
-                </strong>
+            userStatus.textContent = "Active";
 
-                <span id="userRole">
-                    Loading...
-                </span>
+        } else {
 
-            </div>
+            userStatus.textContent = "Inactive";
+        }
 
 
-            <div class="profile-item">
+        // Keep localStorage role synchronized
+        if (data.role) {
 
-                <strong>
-                    Account Status
-                </strong>
-
-                <span id="userStatus">
-                    Loading...
-                </span>
-
-            </div>
+            localStorage.setItem("userRole", data.role);
+        }
 
 
-            <p
-                id="message"
-                class="message"
-            ></p>
+        message.textContent = "";
 
-        </div>
+    } catch (error) {
 
-    </main>
+        console.error("Profile error:", error);
+
+        message.textContent =
+            "Unable to load profile. Please try again.";
+
+    }
+}
 
 
-    <script src="../js/profile.js"></script>
+logoutButton.addEventListener("click", async function (event) {
 
-</body>
+    event.preventDefault();
 
-</html>
+    try {
+
+        await fetch(`${API_BASE_URL}/api/logout`, {
+
+            method: "POST",
+
+            headers: {
+                "Session-Id": sessionId
+            }
+
+        });
+
+    } catch (error) {
+
+        console.error("Logout error:", error);
+
+    }
+
+
+    localStorage.removeItem("sessionId");
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("registeredEmail");
+
+    window.location.href = "../login.html";
+});
+
+
+loadProfile();
