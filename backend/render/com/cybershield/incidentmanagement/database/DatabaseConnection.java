@@ -6,6 +6,9 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
+    private static final String SERVICE_NAME =
+            System.getenv("DB_SERVICE_NAME");
+
     private static final String HOST =
             System.getenv("DB_HOST");
 
@@ -44,7 +47,8 @@ public class DatabaseConnection {
             PORT == null ||
             DATABASE == null ||
             USERNAME == null ||
-            PASSWORD == null) {
+            PASSWORD == null||
+            SERVICE_NAME == null) {
 
             throw new SQLException(
                     "Database environment variables are missing."
