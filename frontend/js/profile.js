@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080";
+const API_URL = "https://cybershield-xe22.onrender.com";
 
 const sessionId = localStorage.getItem("sessionId");
 
@@ -21,7 +21,7 @@ async function loadProfile() {
 
     try {
 
-        const response = await fetch(`${API_BASE_URL}/api/profile`, {
+        const response = await fetch(`${API_URL}/api/profile`, {
 
             method: "GET",
 

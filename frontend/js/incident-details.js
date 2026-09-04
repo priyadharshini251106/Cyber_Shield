@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080";
+const API_URL = "https://cybershield-xe22.onrender.com";
 
 const sessionId = localStorage.getItem("sessionId");
 let userRole = localStorage.getItem("userRole");

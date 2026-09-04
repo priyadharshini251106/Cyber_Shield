@@ -62,7 +62,7 @@ registerForm.addEventListener("submit", async function(event) {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/api/register",
+            "https://cybershield-xe22.onrender.com/api/register",
             {
                 method: "POST",
 
