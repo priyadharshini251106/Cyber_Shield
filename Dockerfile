@@ -27,6 +27,7 @@ COPY backend/render/com/cybershield/incidentmanagement/database/DatabaseConnecti
 COPY backend/render/com/cybershield/incidentmanagement/server/CyberShieldServer.java \
      /app/backend/src/main/java/com/cybershield/incidentmanagement/server/CyberShieldServer.java
 
+COPY frontend /app/frontend
 
 # ------------------------------------------
 # Create compiled output directory
